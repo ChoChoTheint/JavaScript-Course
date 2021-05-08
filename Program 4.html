@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program 4</title>
+</head>
+<body>
+    <div>
+        <label>Studend Name </label><input type="text" id="name"><p id="error1" style="color: red;"></p><br>
+        <label>Studend Major Name</label>
+            <select id="studMajor">
+                <option value="0">Select One</option>
+                <option value="1">Bio</option>
+                <option value="2">Eco</option>
+            </select><p id="error2" style="color: red;"></p><br><br>
+    </div><hr>
+    <div>
+        <div id="general" style="display: none;">
+            <label>Myanmar </label><input type="text" id="myan"><br>
+            <label>English </label><input type="text" id="eng"><br>
+            <label>Maths </label><input type="text" id="math"><br>
+            <label>Physics </label><input type="text" id="phys"><br>
+            <label>Chemistry </label><input type="text" id="chem"><br>
+        </div>
+        <div id="bio" style="display: none;">
+            <label>Bio </label><input type="text" id="bio1"><br>
+        </div>
+        <div id="eco" style="display: none;">
+            <label>Eco </label><input type="text" id="eco1"><br>
+        </div>
+        <button onclick="myMajor()">Check Result</button>
+    </div><br><hr>
+    <br><br><hr>
+    <div>
+        <table>
+                <tr>
+                    <th>Result </th><th></th>
+                </tr>
+                <tr>
+                    <td>Myanmar: </td> <td><p id="myanmar"></p></td>
+                </tr>
+                <tr>
+                    <td>English: </td> <td><p id="english"></p></td>
+                </tr>
+                <tr>
+                    <td>Maths: </td> <td><p id="mathematics"></p></td>
+                </tr>
+                <tr>
+                    <td>Physics: </td> <td><p id="physics"></p></td>
+                </tr>
+                <tr>
+                    <td>Chemistry: </td> <td><p id="chemistry"></p></td>
+                </tr>
+                <tr id="none">
+                    <td> </td><td></td>
+                </tr>
+                <tr style="display: none;" id="bioResult">
+                    <td>Bio: </td> <td><p id="bio_"></p></td>
+                </tr>
+                <tr style="display: none;" id="ecoResult">
+                    <td>Eco: </td> <td><p id="eco_"></p></td>
+                </tr>
+                
+        </table>
+    </div>
+
+
+<style>
+    table, tr, th, td {
+      border: black 1px solid;
+      border-collapse: collapse;
+      padding: 7px;
+    }
+    th, td{
+        width: 200px;
+    }
+    #none{
+        height: 37px;
+    }
+</style>
+
+
+
+<script>
+    function myMajor(){
+        var result=document.getElementById("studMajor").value;
+        // if (result=="0"){
+        //     document.getElementById("general").style.display="block";
+        //     document.getElementById("bio").style.display="none";
+        //     document.getElementById("eco").style.display="none";
+        //     document.getElementById("none").style.display="none";
+        //     document.getElementById("bioResult").style.display="none";
+        //     document.getElementById("ecoResult").style.display="none";
+        // }else
+         if (result=="1"){
+            document.getElementById("general").style.display="block";
+            document.getElementById("bio").style.display="block";
+            document.getElementById("eco").style.display="none";
+            document.getElementById("none").style.display="none";
+            document.getElementById("bioResult").style.display="contents";
+            document.getElementById("ecoResult").style.display="none";
+        }else if(result=="2"){
+            document.getElementById("general").style.display="block";
+            document.getElementById("bio").style.display="none";
+            document.getElementById("eco").style.display="block";
+            document.getElementById("none").style.display="none";
+            document.getElementById("bioResult").style.display="none";
+            document.getElementById("ecoResult").style.display="contents";
+        }else{
+            document.getElementById("general").style.display="none";
+            document.getElementById("bio").style.display="none";
+            document.getElementById("eco").style.display="none";
+            document.getElementById("none").style.display="none";
+            document.getElementById("bioResult").style.display="none";
+            document.getElementById("ecoResult").style.display="none";
+        }
+        var myan=document.getElementById("myan").value;
+        var eng=document.getElementById("eng").value;
+        var math=document.getElementById("math").value;
+        var phys=document.getElementById("phys").value;
+        var chem=document.getElementById("chem").value;
+        var bio=document.getElementById("bio1").value;
+        var eco=document.getElementById("eco1").value;
+        var Myan=Number(myan);
+        var Eng=Number(eng);
+        var Math=Number(math);
+        var Phys=Number(phys);
+        var Chem=Number(chem);
+        var Bio=Number(bio);
+        var Eco=Number(eco);
+        if (Myan == 0){
+            myan_result = "";
+        }else if(Myan < 40) {
+            myan_result = "Fail";
+        }else{
+            myan_result = "Pass";
+        }
+        document.getElementById("myanmar").innerHTML=myan_result;
+        // myan result
+        if (Eng == 0){
+            eng_result = "";
+        }else if(Eng < 40) {
+            eng_result = "Fail";
+        }else{
+            eng_result = "Pass";
+        }
+        document.getElementById("english").innerHTML=eng_result;
+        // eng result
+        if (Math == 0){
+            math_result = "";
+        }else if(Math < 40) {
+            math_result = "Fail";
+        }else{
+            math_result = "Pass";
+        }
+        document.getElementById("mathematics").innerHTML=math_result;
+        // math result
+        if (Phys == 0){
+            phys_result = "";
+        }else if(Phys < 40) {
+            phys_result = "Fail";
+        }else{
+            phys_result = "Pass";
+        }
+        document.getElementById("physics").innerHTML=phys_result;
+        // phys result
+        if (Chem == 0){
+            chem_result = "";
+        }else if(Chem < 40) {
+            chem_result = "Fail";
+        }else{
+            chem_result = "Pass";
+        }
+        document.getElementById("chemistry").innerHTML=chem_result;
+        // chem result
+        if (Bio == 0){
+            bio_result = "";
+        }else if(Bio < 40) {
+            bio_result = "Fail";
+        }else{
+            bio_result = "Pass";
+        }
+        document.getElementById("bio_").innerHTML=bio_result;
+        // bio result
+        if (Eco == 0){
+            eco_result = "";
+        }else if(Eco < 40) {
+            eco_result = "Fail";
+        }else{
+            eco_result = "Pass";
+        }
+        document.getElementById("eco_").innerHTML=eco_result;
+        // eco result
+
+        let stu_name = document.getElementById("name").value;
+        let major = document.getElementById("studMajor").value;
+        var error_count = 0;
+        var error_name = "";
+        var error_major = "";
+        if (stu_name == ""){
+            error_count++;
+            error_name = "Invalid Your Student Name!";
+        }
+        document.getElementById("error1").innerHTML = error_name; 
+        // console(error_name);
+       
+        if (major == "0"){
+            error_count++;
+            error_major = "Invalid Your Course!";
+        }
+        document.getElementById("error2").innerHTML = error_major; 
+    }
+</script>
+
+</body>
+</html>

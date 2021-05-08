@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        
+        <div id="left">   
+        <label>Name</label><br>
+        <input type="name" style="width: 100px;">
+        </div>
+
+        <div id="right">
+        <label>Phone</label><br>
+        <input type="tel">
+        </div>
+        
+        <div id="left"> 
+        <label>Email</label><br>
+        <input type="email">
+        </div>
+
+        <div id="right"> 
+        <label>Gender</label><br>
+        <select>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        </div>
+
+        <div id="left"> 
+        <label>BOD</label><br>
+        <input type="date">
+        </div>
+        <div id="right"> 
+        <label>Township</label><br>
+        <select>
+            <option value="Heldan"></option>
+            <option value="North Okkalapa">North Okkalapa</option>
+            <option value="South Okkalapa">South Okkalapa</option>
+            <option value="Mayangone">Mayangone</option>
+            <option value="Haing">Haing</option>
+            <option value="Heldan">Heldan</option>
+            <option value="North Dangon">North Dangon</option>
+        </select>
+        </div>
+        
+        <div>
+        <label>Adress</label><br>
+        <input type="text">
+        </div>   
+        
+        <div>
+        <label>Education</label><br>
+        <select id="Education" onchange="myFunction()">
+            <option value="1">Select One</option>
+            <option value="2">Matrix Exam Student</option>
+            <option value="3">Uni Student</option>
+            <option value="4">Gradute</option>
+        </select>
+        </div><br>
+
+        <div>
+            <div id="bems" style="display: none;">
+                <label>BEMS</label>
+                    <select>
+                        <option value="1">Select One</option>
+                        <option value="2">BEMS1</option>
+                        <option value="3">BEMS2</option>
+                    </select>
+            </div>
+            <div  id="uni" style="display: none;">
+                <label>Uni</label>
+                    <select>
+                        <option value="1">UFL </option>
+                        <option value="2">UCSY</option>
+                    </select>
+            </div>
+            <div id="work" style="display: none;">
+                <label>Current Working?</label>
+                    <select>
+                        <option value="1">Yes </option>
+                        <option value="2">No</option>
+                    </select>
+            </div>
+        </div>
+        <button onclick="myFunction()">Register</button><button onclick="myFunction()">Cancle</button>
+
+<script>
+    function myFunction(){
+        var education=document.getElementById("Education").value;
+        if (education=="1"){
+           document.getElementById("bems").style.display="none";
+           document.getElementById("uni").style.display="none";
+           document.getElementById("work").style.display="none";
+        }else if (education=="2"){
+           document.getElementById("bems").style.display="block";
+           document.getElementById("uni").style.display="none";
+           document.getElementById("work").style.display="none";
+        }else if (education=="3"){
+           document.getElementById("bems").style.display="none";
+           document.getElementById("uni").style.display="block";
+           document.getElementById("work").style.display="none";
+        }else{
+           document.getElementById("bems").style.display="none";
+           document.getElementById("uni").style.display="none";
+           document.getElementById("work").style.display="block";
+           }
+    }
+    
+
+
+
+
+</script>
+<style>
+    #left {
+        float: right ;
+        width: 50% ;
+      }
+      #right {
+        float: right;
+        width: 50%;
+      }
+</style>
+    </form>
+</body>
+</html>

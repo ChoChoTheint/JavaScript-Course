@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program 3</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+       <form action="">
+           <div class="row">
+               <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Student Name</label>
+                        <div><input type="text" name="name" id="student_name" class="form-control"><p id ="err1" style="color:red"></p></div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="course_name" class="form-label">Student Course Name</label>
+                        <div>
+                            <select name="course_name" id="courseName" class="form-control">
+                                <option value="None">Select One</option>
+                                <option value="PHP">PHP</option>
+                                <option value="Java">Java</option>
+                                <option value="Python">Python</option>
+                                <option value="C#">C#</option>
+                                <option value=""></option>
+                            </select>
+                        </div><p id ="err2" style="color:red"></p>
+                    </div>
+                </div>
+            </div><br><hr>  
+        <!-- Name & Course Name -->
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="mark" class="form-label">Exercise Marks</label>
+                        <div><input type="number" name=mark id="ex_mark" class="form-control" min="0" max="25"></div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="mark" class="form-label">Exam Marks</label>
+                        <div><input type="number" name=mark id="exam_mark" class="form-control" min="0" max="25"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="mark" class="form-label">Project Marks</label>
+                        <div><input type="number" name=mark id="project_mark" class="form-control" min="0" max="25"></div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="mark" class="form-label">Attendence Marks</label>
+                        <div><input type="number" name=mark id="attendence_mark" class="form-control" min="0" max="25"></div>
+                    </div>
+                </div>
+            </div><br><hr>
+            <!-- Marks -->
+            <div class="d-flex justify-content-center">
+            <a class="btn btn-primary col-sm-3" onclick="myName()">Check Result</a>
+            </div><hr>
+            <!-- result -->
+            <div>
+
+            </div><br><hr>
+            <div class="row ">
+                <div class="col-sm-12 pt-2" style="background-color: black;">
+                    <label for="result" style="color: cornsilk;">Result :</label><label id="result" style="color: cornsilk;"></label><br>
+                    <label for="name" class="active" style="color: cornsilk;">Dear :</label><label id="name" style="color: cornsilk;"></label><br>
+                    <label for="grade" style="color: cornsilk;">You got the Grade at Course :</label><label id="grade" style="color: cornsilk;"></label>
+                </div>
+            </div>
+       </form>
+    </div>
+    <script>
+        function myName() {
+            let stud_name=document.getElementById("student_name").value;
+            document.getElementById("name").innerHTML = stud_name;
+
+            var user_input1 = document.getElementById("ex_mark").value;
+            var user_input2 = document.getElementById("exam_mark").value;
+            var user_input3 = document.getElementById("project_mark").value;
+            var user_input4 = document.getElementById("attendence_mark").value;
+
+            let input1 = Number(user_input1);
+            let input2 = Number(user_input2);
+            let input3 = Number(user_input3);
+            let input4 = Number(user_input4);
+            let sum = input1 + input2 + input3 + input4;
+            // document.getElementById("result").innerHTML = sum;
+            if (sum == "0"){
+                final_result = "";
+            }else if(sum != "0"){
+                final_result = sum;
+            }
+            document.getElementById("result").innerHTML = final_result;
+
+            if (sum >= 80 ){
+            grade = "A";
+            }else if (sum >= 60 && sum <= 80){
+            grade = "B";
+            }else if (sum >= 40 && sum <= 60){
+            grade = "C";
+            }else if(sum >= 20 && sum <= 40){
+            grade = "D";
+            }else {
+            grade = "";
+            }
+            document.getElementById("grade").innerHTML = grade;
+        
+        let name = document.getElementById("student_name").value;
+        let course = document.getElementById("courseName").value;
+        var error_count = 0;
+        var error_name = "";
+        var error_course = "";
+        if (name == ""){
+            error_count++;
+            error_name = "Invalid Your Student Name!";
+        }
+        document.getElementById("err1").innerHTML = error_name; 
+       
+        if (course == "None"){
+            error_count++;
+            error_course = "Invalid Your Course!";
+        }
+        document.getElementById("err2").innerHTML = error_course; 
+        }
+        
+    </script>
+</body>
+</html>
+
